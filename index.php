@@ -9,7 +9,7 @@
     <form action="cible.php" method="post">
 
         <input type="text" name="user" />
-        <input type="text" name="pass" />
+        <input type="password" name="pass" />
         <input type="submit" value="Valider" />
 
     </form>
