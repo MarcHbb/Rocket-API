@@ -46,11 +46,11 @@ function list_channels($token,$id){
     $obj = json_decode($list);
 
     foreach($obj->channels as $k){
-      echo $k->name."</br>";
+      echo "<li>#".$k->name."</li></br>";
     }
 
     if (curl_errno($ch)) {
-      echo 'Error:' . curl_error($ch);
+      echo 'Err:' . curl_error($ch);
     }
     curl_close ($ch);
 }
