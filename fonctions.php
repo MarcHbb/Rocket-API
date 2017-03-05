@@ -3,28 +3,27 @@
 function login($user,$pass){
 
 
-    $ch = curl_init();
+  $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, "http://localhost:3000/api/v1/login");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "user=$user&password=$pass");
+  curl_setopt($ch, CURLOPT_URL, "http://localhost:3000/api/v1/login");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, "user=$user&password=$pass");
 
-    curl_setopt($ch, CURLOPT_POST, 1);
 
-    $headers = array();
-    $headers[] = "Content-Type: application/x-www-form-urlencoded";
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-    $result = curl_exec($ch);
+  curl_setopt($ch, CURLOPT_POST, 1);
 
-    $json = json_decode($result);
+  $headers = array();
+  $headers[] = "Content-Type: application/x-www-form-urlencoded";
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-    if (curl_errno($ch)) {
-      echo 'Error:' . curl_error($ch);
-    }
-    curl_close ($ch);
+  $result = curl_exec($ch);
 
-    return $json;
+  $json = json_decode($result);
+  curl_close ($ch);
+
+  return $json;
+
 }
 
 function list_channels($token,$id){
